@@ -41,6 +41,8 @@ DEEPSEEK_MODEL=deepseek-v3.2
 
 - API Key 仅通过环境变量读取，不会硬编码在代码中
 - 应用会自动读取项目根目录中的 `.env`
+- 浏览器访问请使用 `127.0.0.1`
+- 部分运行日志中会显示 `0.0.0.0:8501`，该地址为服务监听地址
 
 ## 本地启动
 
@@ -53,7 +55,7 @@ cp .env.example .env
 ./run.sh
 ```
 
-浏览器访问：`http://localhost:8501`
+浏览器访问：`http://127.0.0.1:8501`
 
 如果 `run.sh` 没有执行权限，可使用：
 
@@ -67,7 +69,7 @@ bash run.sh
 PORT=8502 ./run.sh
 ```
 
-然后访问：`http://localhost:8502`
+然后访问：`http://127.0.0.1:8502`
 
 ## Docker 构建与启动
 
@@ -83,7 +85,7 @@ docker build -t resume-optimizer-agent .
 docker run --rm -p 8501:8501 --env-file .env resume-optimizer-agent
 ```
 
-浏览器访问：`http://localhost:8501`
+浏览器访问：`http://127.0.0.1:8501`
 
 如果端口 `8501` 已被占用，可改用：
 
@@ -91,7 +93,7 @@ docker run --rm -p 8501:8501 --env-file .env resume-optimizer-agent
 docker run --rm -p 8502:8501 --env-file .env resume-optimizer-agent
 ```
 
-然后访问：`http://localhost:8502`
+然后访问：`http://127.0.0.1:8502`
 
 ## 面试官快速验收
 
@@ -106,7 +108,7 @@ docker build -t resume-optimizer-agent .
 docker run --rm -p 8501:8501 --env-file .env resume-optimizer-agent
 ```
 
-打开 `http://localhost:8501` 后：
+打开 `http://127.0.0.1:8501` 后：
 
 1. 上传或粘贴简历内容
 2. 粘贴目标岗位 JD
