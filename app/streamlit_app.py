@@ -9,6 +9,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from app.llm_client import DeepSeekAPIError, DeepSeekClient
 from app.resume_optimizer import build_analysis_messages, build_optimized_resume_messages
+from app.config import Config
 from app.tools import decode_uploaded_text, normalize_multiline_text, parse_analysis_sections
 
 
@@ -25,7 +26,8 @@ def main() -> None:
 
     with st.sidebar:
         st.subheader("运行配置")
-        st.write("请确保已通过环境变量设置 `DEEPSEEK_API_KEY`。")
+        if not Config.deepseek_api_key:
+            st.warning("当前未检测到 `DEEPSEEK_API_KEY`，分析与优化功能将不可用。")
 
     left, right = st.columns(2)
 
