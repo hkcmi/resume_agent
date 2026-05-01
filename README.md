@@ -95,7 +95,7 @@ docker run --rm -p 8502:8501 --env-file .env resume-optimizer-agent
 
 然后访问：`http://127.0.0.1:8502`
 
-## 面试官快速验收
+## 快速验收
 
 仅需以下步骤即可启动并完成基本验收：
 
